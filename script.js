@@ -3,7 +3,7 @@ let computerScore = 0;
 
 
 function getComputerChoice() {
-    const choice =  Math.floor(Math.random()*3) 
+    const computerChoice =  Math.floor(Math.random()*3) 
 
     if (choice === 0) {
         return ("rock");
@@ -17,8 +17,35 @@ function getComputerChoice() {
  }
 
 function getHumanChoice() {
-    const choice2 = prompt("What is your choice?");
+    const humanChoice = prompt("What is your choice?");
     
-    return choice2.toLowerCase();
+    return humanChoice.toLowerCase();
 }
 
+function playRound(humanChoice, computerChoice)
+ {
+    if (humanChoice === computerChoice)
+    {
+    console.log("It is a tie!!");
+    }
+    else if (humanChoice === "rock" && computerChoice === "scissors") {
+    console.log("You win! Rock beat Scissors");
+    humanScore =humanScore + 1;
+    }
+    else if (humanChoice === "paper" && computerChoice === "rock") {
+    console.log("You win! Paper beat Rock");
+    humanScore =humanScore + 1;
+    }   
+
+    else if (humanChoice === "scissors" && computerChoice === "paper")
+     { console.log("You win! Scissors beat Paper");
+    humanScore = humanScore + 1;
+    }
+    else {
+        console.log (`YOu lose ${computerChoice} beats ${humanChoice}`);
+        computerScore =computerScore +1;
+    }
+ }
+
+    playRound("rock", "scissors");
+    console.log(humanScore);
